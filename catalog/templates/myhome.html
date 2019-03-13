@@ -1,0 +1,25 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+  <!-- {% for ve in value %}
+    <a href="{{ url_for('showGames',veid=ve.id)}}">{{ve.name}}</a><br>
+    {% endfor %} -->
+    {% with messages = get_flashed_messages() %}
+	    {% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	    {% endif %}
+	{% endwith %}
+
+	<div class="text-center">
+		<!-- <h1>Welcome to GamesWorld</h1> -->
+		<img style="width: 1250px; height: 600px; margin: 0; padding: 0; margin-top: 0px" src="https://cdn.vox-cdn.com/thumbor/SZyd813bDiTnqj8a7_yqmlAlFmM=/0x0:1268x717/1200x800/filters:focal(533x258:735x460)/cdn.vox-cdn.com/uploads/chorus_image/image/58980137/fn_battle_royale_1268x717_cf9fa8a783c249aa8d6929126e29f5f190620357.0.jpg"
+	</div>
+
+    
+{% endblock content %}
+</div>

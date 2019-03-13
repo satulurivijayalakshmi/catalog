@@ -1,0 +1,48 @@
+ {% include 'nav.html' %}
+<div class="main">
+{% block content %}
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	{% endif %}	    
+{% endwith %}
+{% if 'username' in session %}
+<button type="button" class="btn btn-warning" style="margin: 5px 0px 5px 25px; background-color:#FB3F5F;"><a href="{{url_for('addGameDetails',vename=video.name)}}" style="text-decoration: none;color:white"><strong>Add  Game Details</strong></a></button>
+
+{% endif %}
+<div class="row" style="margin: 10px;">
+{% for vog in vg %}
+
+	<div class="col-sm-4 text-center">
+		<div class="panel panel-primary">
+			<div class="panel-heading"style="background-color:#ccccff;color:black;">
+				<h4>{{ vog.name }}</h4>
+			</div>
+			<div class="panel-body text-center"style="color:#0f1f3d">
+				<table>
+					<tr><th>GAMENAME</th><td>:</td><td><h5>{{ vog.name }}</h5></td></tr>
+					<tr><th>YEAR</th><td>:</td><td><h5>{{ vog.year }}</h5></td></tr>
+					<tr><th>DEVELOPER</th><td>:</td><td><h5>{{ vog.developer }}</h5></td></tr>
+					<tr><th>PUBLISHER</th><td>:</td><td><h5>{{ vog.publisher }}</h5></td></tr>
+					<tr><th>MODE</th><td>:</td><td><h5>{{ vog.mode }}</h5></td></tr>
+					<tr><th>PROGRAMMER</th><td>:</td><td><h5>{{ vog.gameprogrammer }}</h5></td></tr>
+				</table>
+			</div>
+			{% if 'username' in session %}
+			<div class="panel-footer">
+					<button type="button" class="btn btn-info"style="background-color:#0FC86F;"><a href="{{ url_for('editGame',veid=video.id,vogname=vog.name) }}"style="text-decoration: none;color:white;">EDIT</a></button>
+					<button type="button" class="btn btn-danger" style="background-color:#5F036F;"><a href="{{ url_for('deleteGame',veid=video.id,vogname=vog.name)}}"style="text-decoration: none;color:white;">DELETE</a></button>
+			</div>
+			{% endif %}	
+			
+		</div>
+	</div>
+{% endfor %}
+</div>
+{% endblock content %}
+</div>

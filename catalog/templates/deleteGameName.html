@@ -1,0 +1,22 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+ <center style="margin-left:10%;margin-right:0%">   
+	<div class="">
+		<div class="d-flex justify-content-center">
+			<div class="card" style="width: 38rem;">
+		<form action="{{url_for('deleteGameName',veid=ve.id)}}" method="POST">
+			<div class="card-body bg-info">
+				<h2 class="card-text" style="text-align:center; font-family:TimesNewRoman;color:#FC012B;">Are you sure you want to delete {{ve.name}}</h2>
+			</div>
+			<div class="card-footer d-flex justify-content-center" style="text-align:center; font-family:TimesNewRoman;color:#FC012B;">
+				<input type="submit" class="btn btn-danger" value="Delete" style="margin-right: 10px;text-align:center ;background-color:#5F036F">
+			    <button type="button" class="btn btn-warning"style="margin-right: 10px;color:white;background-color:#02FE91"><a href="http://localhost:8000/home">Cancel</a></button>
+			</div>
+			
+		</form>
+	</div>
+		</div>
+		
+	</div>
+	{% endblock content %}

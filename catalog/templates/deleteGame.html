@@ -1,0 +1,22 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+<center style="margin-left:35%;margin-right:10%">
+	<div class="">
+			<div class="text-center">
+				<div class="panel panel-primary" style="width: 38rem;">
+					<form action="{{url_for('deleteGame',veid=veid,vogname=gamedetails.name)}}" method="POST">
+						<div class="panel-body">
+							<h4 style="color: blue;">Are you sure you want to delete {{gamedetails.name}}</h4>
+						</div>
+						<div class="panel-footer text-center">
+							<input type="submit" class="btn btn-danger" value="Delete" style="margin-right: 10px;color:white;background-color:#5F036F">
+						    <button type="button" class="btn btn-warning"style="margin-right: 10px;color:white;background-color:#02FE91"><a href="{{url_for('showGames',veid=veid)}}">CANCEL</a></button>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+	</div>
+{% endblock content %}	
+</div>

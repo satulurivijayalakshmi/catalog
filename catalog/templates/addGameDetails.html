@@ -1,0 +1,45 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+
+<div class="">
+		<div class="mr-sm-2 mb-2 col-sm-8" style="margin: 10px;color:green;">
+			<form action="{{ url_for('addGameDetails',vename=vename)}}" method="POST"style=";background-color:#999966;>
+				<div class="panel panel-primary">
+				  <div class="panel-heading bg-success" style=";background-color:#0d0d26;">Add Game Details</div>
+				  <div class="panel-body">
+				  	
+					  <div class="form-group">
+					  	<label class="text-primary" for="name" style="color:#b30047">Enter Game Name:</label>
+					    <input type="name" class="form-control" name="name" placeholder="Enter Game Name:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="year" style="color:#b30047">Enter  Year:</label>
+					    <input type="text" class="form-control" name="year" placeholder="Enter  year:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="developer" style="color:#b30047">Enter Game developer:</label>
+					    <input type="text" class="form-control" name="developer" placeholder="Enter game developer:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only " required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="publisher" style="color:#b30047">Enter publisher:</label>
+					    <input type="text" class="form-control" name="publisher" placeholder="Enter publisher:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="mode" style="color:#b30047">Enter Game Mode:</label>
+					    <input type="text" class="form-control" name="mode" placeholder="Enter Game mode:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="gameprogrammer" style="color:#b30047">Enter Game Programmer:</label>
+					    <input type="text" class="form-control" name="gameprogrammer" placeholder="Enter Game Programmer:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only" required>
+					  </div>
+					  <div class="form-group">
+					    <input type="text" class="form-control " name="gametypeid" value="{{ vename }}" style="background-color:#8D8D1A"readonly >
+					  </div>
+				  </div> 
+				  <div class="panel-footer text-center"style="background-color:#0d0d26"><input type="submit" class="btn btn-primary" value="Submit" style="background-color:#0FC86F"></div>
+				</div>
+				</form>
+			</div>
+</div>
+{% endblock content %}
